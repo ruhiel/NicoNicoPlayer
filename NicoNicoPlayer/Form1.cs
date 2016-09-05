@@ -16,6 +16,12 @@ namespace NicoNicoPlayer
 		public Form1()
 		{
 			InitializeComponent();
+			this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.イベント名);
+		}
+
+		private void イベント名(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+
 		}
 
 		private void Zoom(int zoomValue)
@@ -48,23 +54,40 @@ namespace NicoNicoPlayer
 			ss.addRule("div#bottomContentTabContainer", "display: none;");
 			ss.addRule("div#footer", "display: none;");
 			ss.addRule("div#playerTabContainer", "display: none;");
+			ss.addRule("div#appliPanel", "display: none;");
 
-			Zoom(50);
+			Zoom((int)numericUpDown1.Value);
+
+			var docEvents = (mshtml.HTMLDocumentEvents2_Event)webBrowser1.Document.DomDocument;
+			docEvents.onmousewheel -= docEvents_onmousewheel; //may not be necessary?
+			docEvents.onmousewheel += docEvents_onmousewheel;
 		}
 		
 		private void button1_Click(object sender, EventArgs e)
 		{
-			if(!textBox1.Text.Contains("http://www.nicovideo.jp"))
+			var uri = textBox1.Text;
+			if (!textBox1.Text.Contains("http://www.nicovideo.jp"))
 			{
-				textBox1.Text = "http://www.nicovideo.jp/watch/" + textBox1.Text;
+				uri = "http://www.nicovideo.jp/watch/" + textBox1.Text;
 			}
 			
-			this.webBrowser1.Url = new Uri(textBox1.Text);
+			this.webBrowser1.Url = new Uri(uri);
+		}
+
+		private bool docEvents_onmousewheel(mshtml.IHTMLEventObj pEvtObj)
+		{
+			return false;
 		}
 
 		private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
 			Init();
+		}
+
+		private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+		{
+			NumericUpDown control = sender as NumericUpDown;
+			Zoom((int)control.Value);
 		}
 	}
 }
