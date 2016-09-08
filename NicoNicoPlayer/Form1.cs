@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,12 +18,6 @@ namespace NicoNicoPlayer
 		public Form1()
 		{
 			InitializeComponent();
-			this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.イベント名);
-		}
-
-		private void イベント名(object sender, System.Windows.Forms.MouseEventArgs e)
-		{
-
 		}
 
 		private void Zoom(int zoomValue)
@@ -65,13 +61,24 @@ namespace NicoNicoPlayer
 		
 		private void button1_Click(object sender, EventArgs e)
 		{
-			var uri = textBox1.Text;
-			if (!textBox1.Text.Contains("http://www.nicovideo.jp"))
+			ShowVideo(textBox1.Text);
+		}
+
+		private void ShowVideo(string videoID)
+		{
+			string uri = videoID;
+			if (!uri.Contains("http://www.nicovideo.jp"))
 			{
 				uri = "http://www.nicovideo.jp/watch/" + textBox1.Text;
 			}
-			
+
 			this.webBrowser1.Url = new Uri(uri);
+		}
+
+		public void MyListShow(string videoId)
+		{
+			textBox1.Text = videoId;
+			ShowVideo(textBox1.Text);
 		}
 
 		private bool docEvents_onmousewheel(mshtml.IHTMLEventObj pEvtObj)
@@ -88,6 +95,18 @@ namespace NicoNicoPlayer
 		{
 			NumericUpDown control = sender as NumericUpDown;
 			Zoom((int)control.Value);
+		}
+
+		private void 設定ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var settingForm = new SettingForm();
+			settingForm.ShowDialog();
+		}
+
+		private void マイリストToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var myListForm = new MyListForm(this);
+			myListForm.Show();
 		}
 	}
 }

@@ -34,9 +34,14 @@
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.ファイルToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.マイリストToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.tableLayoutPanel2.SuspendLayout();
+			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// textBox1
@@ -98,13 +103,12 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.webBrowser1, 0, 1);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 28);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 2;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(386, 317);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(386, 289);
 			this.tableLayoutPanel2.TabIndex = 3;
 			// 
 			// webBrowser1
@@ -118,19 +122,56 @@
 			this.webBrowser1.TabIndex = 3;
 			this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
 			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ファイルToolStripMenuItem,
+            this.設定ToolStripMenuItem,
+            this.マイリストToolStripMenuItem});
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(386, 24);
+			this.menuStrip1.TabIndex = 4;
+			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// ファイルToolStripMenuItem
+			// 
+			this.ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem";
+			this.ファイルToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+			this.ファイルToolStripMenuItem.Text = "ファイル";
+			// 
+			// 設定ToolStripMenuItem
+			// 
+			this.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
+			this.設定ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+			this.設定ToolStripMenuItem.Text = "設定";
+			this.設定ToolStripMenuItem.Click += new System.EventHandler(this.設定ToolStripMenuItem_Click);
+			// 
+			// マイリストToolStripMenuItem
+			// 
+			this.マイリストToolStripMenuItem.Name = "マイリストToolStripMenuItem";
+			this.マイリストToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+			this.マイリストToolStripMenuItem.Text = "マイリスト";
+			this.マイリストToolStripMenuItem.Click += new System.EventHandler(this.マイリストToolStripMenuItem_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(386, 317);
 			this.Controls.Add(this.tableLayoutPanel2);
+			this.Controls.Add(this.menuStrip1);
+			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Form1";
 			this.Text = "Form1";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.tableLayoutPanel2.ResumeLayout(false);
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -141,6 +182,10 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.WebBrowser webBrowser1;
 		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem ファイルToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 設定ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem マイリストToolStripMenuItem;
 	}
 }
 
