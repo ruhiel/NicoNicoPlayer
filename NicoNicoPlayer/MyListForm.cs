@@ -12,9 +12,9 @@ namespace NicoNicoPlayer
 {
 	public partial class MyListForm : Form
 	{
-		private Form1 form;
+		private MainForm form;
 
-		public MyListForm(Form1 form)
+		public MyListForm(MainForm form)
 		{
 			InitializeComponent();
 			this.form = form;

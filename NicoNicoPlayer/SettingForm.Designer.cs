@@ -66,6 +66,8 @@
 			this.Controls.Add(this.OKButton);
 			this.Controls.Add(this.PassWordTextBox);
 			this.Controls.Add(this.EmailTextBox);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
 			this.Name = "SettingForm";
 			this.Text = "SettingForm";
 			this.Load += new System.EventHandler(this.SettingForm_Load);

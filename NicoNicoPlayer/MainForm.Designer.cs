@@ -1,6 +1,6 @@
 ﻿namespace NicoNicoPlayer
 {
-	partial class Form1
+	partial class MainForm
 	{
 		/// <summary>
 		/// 必要なデザイナー変数です。
@@ -155,7 +155,7 @@
 			this.マイリストToolStripMenuItem.Text = "マイリスト";
 			this.マイリストToolStripMenuItem.Click += new System.EventHandler(this.マイリストToolStripMenuItem_Click);
 			// 
-			// Form1
+			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,8 +163,9 @@
 			this.Controls.Add(this.tableLayoutPanel2);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
-			this.Name = "Form1";
-			this.Text = "Form1";
+			this.MaximizeBox = false;
+			this.Name = "MainForm";
+			this.Text = "NicoNicoPlayer";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
