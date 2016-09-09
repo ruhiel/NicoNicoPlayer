@@ -103,12 +103,13 @@
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.webBrowser1, 0, 1);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 28);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 24);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 2;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(386, 289);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(386, 293);
 			this.tableLayoutPanel2.TabIndex = 3;
 			// 
 			// webBrowser1
