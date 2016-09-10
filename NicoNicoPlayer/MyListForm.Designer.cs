@@ -30,13 +30,13 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.myListdataGridView = new System.Windows.Forms.DataGridView();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.videoIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.myListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.myListdataGridView)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.myListBindingSource)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.myListBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// myListdataGridView
@@ -60,6 +60,20 @@
 			this.myListdataGridView.TabIndex = 0;
 			this.myListdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myListdataGridView_CellContentClick);
 			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Controls.Add(this.myListdataGridView, 0, 1);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(619, 261);
+			this.tableLayoutPanel1.TabIndex = 1;
+			// 
 			// titleDataGridViewTextBoxColumn
 			// 
 			this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
@@ -77,20 +91,6 @@
 			// 
 			this.myListBindingSource.DataSource = typeof(NicoNicoPlayer.MyList);
 			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.ColumnCount = 1;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.myListdataGridView, 0, 1);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 2;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(619, 261);
-			this.tableLayoutPanel1.TabIndex = 1;
-			// 
 			// MyListForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -99,11 +99,13 @@
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.MaximizeBox = false;
 			this.Name = "MyListForm";
-			this.Text = "MyListForm";
+			this.Text = "マイリスト";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MyListForm_FormClosed);
 			this.Load += new System.EventHandler(this.MyListForm_Load);
+			this.SizeChanged += new System.EventHandler(this.MyListForm_SizeChanged);
 			((System.ComponentModel.ISupportInitialize)(this.myListdataGridView)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.myListBindingSource)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.myListBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}

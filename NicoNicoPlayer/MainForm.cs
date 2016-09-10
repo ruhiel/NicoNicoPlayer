@@ -15,6 +15,8 @@ namespace NicoNicoPlayer
 {
 	public partial class MainForm : Form
 	{
+		private MyListForm _MyListForm;
+
 		public MainForm()
 		{
 			InitializeComponent();
@@ -58,7 +60,7 @@ namespace NicoNicoPlayer
 			docEvents.onmousewheel -= docEvents_onmousewheel; //may not be necessary?
 			docEvents.onmousewheel += docEvents_onmousewheel;
 		}
-		
+
 		private void button1_Click(object sender, EventArgs e)
 		{
 			ShowVideo(textBox1.Text);
@@ -105,8 +107,18 @@ namespace NicoNicoPlayer
 
 		private void マイリストToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			var myListForm = new MyListForm(this);
-			myListForm.Show();
+			if (_MyListForm == null)
+			{
+				_MyListForm = new MyListForm(this);
+			}
+
+			_MyListForm.Show();
+			_MyListForm.RestoreMinimizedWindow();
+		}
+
+		public void DisposeMylist()
+		{
+			_MyListForm = null;
 		}
 	}
 }

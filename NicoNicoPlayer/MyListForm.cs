@@ -14,6 +14,9 @@ namespace NicoNicoPlayer
 	{
 		private MainForm form;
 
+		//最小化されたフォームを元に戻す時の状態
+		private FormWindowState preWindowState;
+
 		public MyListForm(MainForm form)
 		{
 			InitializeComponent();
@@ -40,6 +43,16 @@ namespace NicoNicoPlayer
 				{
 					this.myListBindingSource.Add(m);
 				}
+
+				//初期化
+				if (this.WindowState == FormWindowState.Minimized)
+				{
+					this.preWindowState = FormWindowState.Normal;
+				}
+				else
+				{
+					this.preWindowState = this.WindowState;
+				}
 			}
 			catch (Exception)
 			{
@@ -55,6 +68,28 @@ namespace NicoNicoPlayer
 			{
 				var myList = myListBindingSource[e.RowIndex] as MyList;
 				form.MyListShow(myList.VideoID);
+			}
+		}
+
+		private void MyListForm_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			form.DisposeMylist();
+		}
+
+		public void RestoreMinimizedWindow()
+		{
+			if (this.WindowState == FormWindowState.Minimized)
+			{
+				this.WindowState = this.preWindowState;
+			}
+		}
+
+		private void MyListForm_SizeChanged(object sender, EventArgs e)
+		{
+			//最小化された以外の時に、状態を覚えておく
+			if (this.WindowState != FormWindowState.Minimized)
+			{
+				this.preWindowState = this.WindowState;
 			}
 		}
 	}
