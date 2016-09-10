@@ -79,6 +79,11 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyList.cs" />
+    <Compile Include="MyListDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyListDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MyListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +118,17 @@
     <EmbeddedResource Include="SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="MyListDataSet.xsc">
+      <DependentUpon>MyListDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MyListDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyListDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="MyListDataSet.xss">
+      <DependentUpon>MyListDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MyList.datasource" />
     <None Include="Properties\Settings.settings">

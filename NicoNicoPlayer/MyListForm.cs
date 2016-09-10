@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static NicoNicoPlayer.MyListDataSet;
 
 namespace NicoNicoPlayer
 {
@@ -37,11 +38,12 @@ namespace NicoNicoPlayer
 				//DataGridViewに追加する
 				myListdataGridView.Columns.Add(column);
 				Settings.LoadFromXmlFile("test.xml");
+				
 
 				NicoNico niconico = new NicoNico(Settings.Instance.Email, Settings.Instance.Password);
 				foreach (var m in niconico.GetMyList())
 				{
-					this.myListBindingSource.Add(m);
+					this.myListDataSet1.MyList.AddMyListRow(m.Title, m.VideoID);
 				}
 
 				//初期化
@@ -66,7 +68,8 @@ namespace NicoNicoPlayer
 			//"Button"列ならば、ボタンがクリックされた
 			if (dgv.Columns[e.ColumnIndex].Name == "Button")
 			{
-				var myList = myListBindingSource[e.RowIndex] as MyList;
+				var drv = this.myListbindingSource[e.RowIndex] as DataRowView;
+				var myList = drv.Row as MyListRow;
 				form.MyListShow(myList.VideoID);
 			}
 		}
@@ -91,6 +94,20 @@ namespace NicoNicoPlayer
 			{
 				this.preWindowState = this.WindowState;
 			}
+		}
+
+		private void filterTextBox_TextChanged(object sender, EventArgs e)
+		{
+			TextBox textBox = sender as TextBox;
+			if(string.IsNullOrEmpty(textBox.Text))
+			{
+				myListbindingSource.Filter = string.Empty;
+			}
+			else
+			{
+				myListbindingSource.Filter = string.Format("Title like '%{0:s}%'", textBox.Text);
+			}
+			
 		}
 	}
 }
