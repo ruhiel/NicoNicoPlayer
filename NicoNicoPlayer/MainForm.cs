@@ -108,6 +108,8 @@ namespace NicoNicoPlayer
 
 			_MyListForm.Show();
 			_MyListForm.RestoreMinimizedWindow();
+			_MyListForm.TopMost = true;
+			_MyListForm.TopMost = false;
 		}
 
 		public void DisposeMylist()
@@ -119,14 +121,12 @@ namespace NicoNicoPlayer
 		{
 			Settings.LoadFromXmlFile();
 			Clipboard.SetText(Settings.Instance.Email);
-			SendKeys.Send("^V");
 		}
 
 		private void passwordToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Settings.LoadFromXmlFile();
-			Clipboard.SetText(Settings.Instance.Password);
-			SendKeys.Send("^V");
+			Clipboard.SetText(Settings.Instance.RowPassword);
 		}
 
 		private void 動作設定ToolStripMenuItem_Click(object sender, EventArgs e)

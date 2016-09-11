@@ -42,9 +42,10 @@ namespace NicoNicoPlayer
 
 				NicoNico niconico = new NicoNico(Settings.Instance.Email, Settings.Instance.RowPassword);
 
-				foreach (var m in niconico.GetMyList())
+				// 削除されていないリストを取得
+				foreach (var m in niconico.GetMyList().Where(x => x.deleted == "0"))
 				{
-					this.myListDataSet1.MyList.AddMyListRow(m.Title, m.VideoID);
+					this.myListDataSet1.MyList.AddMyListRow(m.title, m.video_id);
 				}
 
 				//初期化
@@ -113,6 +114,30 @@ namespace NicoNicoPlayer
 				myListbindingSource.Filter = string.Format("Title like '%{0:s}%'", textBox.Text);
 			}
 			
+		}
+
+		private void myListdataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+		{
+			//列ヘッダーかどうか調べる
+			if (e.ColumnIndex < 0 && e.RowIndex >= 0)
+			{
+				//セルを描画する
+				e.Paint(e.ClipBounds, DataGridViewPaintParts.All);
+
+				//行番号を描画する範囲を決定する
+				//e.AdvancedBorderStyleやe.CellStyle.Paddingは無視しています
+				Rectangle indexRect = e.CellBounds;
+				indexRect.Inflate(-2, -2);
+				//行番号を描画する
+				TextRenderer.DrawText(e.Graphics,
+					(e.RowIndex + 1).ToString(),
+					e.CellStyle.Font,
+					indexRect,
+					e.CellStyle.ForeColor,
+					TextFormatFlags.Right | TextFormatFlags.VerticalCenter);
+				//描画が完了したことを知らせる
+				e.Handled = true;
+			}
 		}
 	}
 }

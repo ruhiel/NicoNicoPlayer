@@ -30,16 +30,16 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.myListdataGridView = new System.Windows.Forms.DataGridView();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.filterTextBox = new System.Windows.Forms.TextBox();
-			this.myListDataSet1 = new NicoNicoPlayer.MyListDataSet();
-			this.myListbindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.videoIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.myListbindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.myListDataSet1 = new NicoNicoPlayer.MyListDataSet();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.filterTextBox = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.myListdataGridView)).BeginInit();
-			this.tableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.myListDataSet1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.myListbindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.myListDataSet1)).BeginInit();
+			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// myListdataGridView
@@ -61,6 +61,30 @@
 			this.myListdataGridView.Size = new System.Drawing.Size(660, 235);
 			this.myListdataGridView.TabIndex = 0;
 			this.myListdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myListdataGridView_CellContentClick);
+			this.myListdataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.myListdataGridView_CellPainting);
+			// 
+			// titleDataGridViewTextBoxColumn
+			// 
+			this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+			this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+			this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+			this.titleDataGridViewTextBoxColumn.Width = 400;
+			// 
+			// videoIDDataGridViewTextBoxColumn
+			// 
+			this.videoIDDataGridViewTextBoxColumn.DataPropertyName = "VideoID";
+			this.videoIDDataGridViewTextBoxColumn.HeaderText = "VideoID";
+			this.videoIDDataGridViewTextBoxColumn.Name = "videoIDDataGridViewTextBoxColumn";
+			// 
+			// myListbindingSource
+			// 
+			this.myListbindingSource.DataMember = "MyList";
+			this.myListbindingSource.DataSource = this.myListDataSet1;
+			// 
+			// myListDataSet1
+			// 
+			this.myListDataSet1.DataSetName = "MyListDataSet";
+			this.myListDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// tableLayoutPanel1
 			// 
@@ -86,29 +110,6 @@
 			this.filterTextBox.TabIndex = 1;
 			this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
 			// 
-			// myListDataSet1
-			// 
-			this.myListDataSet1.DataSetName = "MyListDataSet";
-			this.myListDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
-			// myListbindingSource
-			// 
-			this.myListbindingSource.DataMember = "MyList";
-			this.myListbindingSource.DataSource = this.myListDataSet1;
-			// 
-			// titleDataGridViewTextBoxColumn
-			// 
-			this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-			this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-			this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-			this.titleDataGridViewTextBoxColumn.Width = 400;
-			// 
-			// videoIDDataGridViewTextBoxColumn
-			// 
-			this.videoIDDataGridViewTextBoxColumn.DataPropertyName = "VideoID";
-			this.videoIDDataGridViewTextBoxColumn.HeaderText = "VideoID";
-			this.videoIDDataGridViewTextBoxColumn.Name = "videoIDDataGridViewTextBoxColumn";
-			// 
 			// MyListForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -122,10 +123,10 @@
 			this.Load += new System.EventHandler(this.MyListForm_Load);
 			this.SizeChanged += new System.EventHandler(this.MyListForm_SizeChanged);
 			((System.ComponentModel.ISupportInitialize)(this.myListdataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.myListbindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.myListDataSet1)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.myListDataSet1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.myListbindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}

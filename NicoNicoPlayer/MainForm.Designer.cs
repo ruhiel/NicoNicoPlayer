@@ -190,16 +190,16 @@
 			// emailToolStripMenuItem
 			// 
 			this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-			this.emailToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
-			this.emailToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+			this.emailToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
+			this.emailToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.emailToolStripMenuItem.Text = "Email";
 			this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
 			// 
 			// passwordToolStripMenuItem
 			// 
 			this.passwordToolStripMenuItem.Name = "passwordToolStripMenuItem";
-			this.passwordToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
-			this.passwordToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+			this.passwordToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
+			this.passwordToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.passwordToolStripMenuItem.Text = "Password";
 			this.passwordToolStripMenuItem.Click += new System.EventHandler(this.passwordToolStripMenuItem_Click);
 			// 

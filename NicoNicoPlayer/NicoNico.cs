@@ -91,8 +91,9 @@ namespace NicoNicoPlayer
 			{
 				MyList m = new MyList()
 				{
-					Title = item.item_data.title,
-					VideoID = item.item_data.video_id
+					title = item.item_data.title,
+					video_id = item.item_data.video_id,
+					deleted = item.item_data.deleted
 				};
 				myList.Add(m);
 			}
