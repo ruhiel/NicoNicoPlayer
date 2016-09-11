@@ -99,12 +99,6 @@ namespace NicoNicoPlayer
 			Zoom((int)control.Value);
 		}
 
-		private void 設定ToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			var settingForm = new SettingForm();
-			settingForm.ShowDialog();
-		}
-
 		private void マイリストToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (_MyListForm == null)
@@ -119,6 +113,32 @@ namespace NicoNicoPlayer
 		public void DisposeMylist()
 		{
 			_MyListForm = null;
+		}
+
+		private void emailToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Settings.LoadFromXmlFile();
+			Clipboard.SetText(Settings.Instance.Email);
+			SendKeys.Send("^V");
+		}
+
+		private void passwordToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Settings.LoadFromXmlFile();
+			Clipboard.SetText(Settings.Instance.Password);
+			SendKeys.Send("^V");
+		}
+
+		private void 動作設定ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			SettingForm form = new SettingForm();
+			form.ShowDialog();
+		}
+
+		private void 認証設定ToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var settingForm = new AuthSettingForm();
+			settingForm.ShowDialog();
 		}
 	}
 }

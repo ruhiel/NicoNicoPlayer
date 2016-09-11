@@ -69,6 +69,10 @@ namespace NicoNicoPlayer
 			//"Button"列ならば、ボタンがクリックされた
 			if (dgv.Columns[e.ColumnIndex].Name == "Button")
 			{
+				if(Settings.Instance.MinimizeAfterMyList)
+				{
+					this.WindowState = FormWindowState.Minimized;
+				}
 				var drv = this.myListbindingSource[e.RowIndex] as DataRowView;
 				var myList = drv.Row as MyListRow;
 				form.MyListShow(myList.VideoID);

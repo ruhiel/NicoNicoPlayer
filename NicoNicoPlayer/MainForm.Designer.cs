@@ -37,7 +37,12 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.ファイルToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.認証設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.動作設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.マイリストToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.認証ショートカットキーToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -128,7 +133,8 @@
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ファイルToolStripMenuItem,
             this.設定ToolStripMenuItem,
-            this.マイリストToolStripMenuItem});
+            this.マイリストToolStripMenuItem,
+            this.認証ショートカットキーToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(386, 24);
@@ -143,10 +149,26 @@
 			// 
 			// 設定ToolStripMenuItem
 			// 
+			this.設定ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.認証設定ToolStripMenuItem,
+            this.動作設定ToolStripMenuItem});
 			this.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
 			this.設定ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
 			this.設定ToolStripMenuItem.Text = "設定";
-			this.設定ToolStripMenuItem.Click += new System.EventHandler(this.設定ToolStripMenuItem_Click);
+			// 
+			// 認証設定ToolStripMenuItem
+			// 
+			this.認証設定ToolStripMenuItem.Name = "認証設定ToolStripMenuItem";
+			this.認証設定ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+			this.認証設定ToolStripMenuItem.Text = "認証";
+			this.認証設定ToolStripMenuItem.Click += new System.EventHandler(this.認証設定ToolStripMenuItem_Click);
+			// 
+			// 動作設定ToolStripMenuItem
+			// 
+			this.動作設定ToolStripMenuItem.Name = "動作設定ToolStripMenuItem";
+			this.動作設定ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+			this.動作設定ToolStripMenuItem.Text = "動作設定";
+			this.動作設定ToolStripMenuItem.Click += new System.EventHandler(this.動作設定ToolStripMenuItem_Click);
 			// 
 			// マイリストToolStripMenuItem
 			// 
@@ -154,6 +176,32 @@
 			this.マイリストToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
 			this.マイリストToolStripMenuItem.Text = "マイリスト";
 			this.マイリストToolStripMenuItem.Click += new System.EventHandler(this.マイリストToolStripMenuItem_Click);
+			// 
+			// 認証ショートカットキーToolStripMenuItem
+			// 
+			this.認証ショートカットキーToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.emailToolStripMenuItem,
+            this.passwordToolStripMenuItem});
+			this.認証ショートカットキーToolStripMenuItem.Name = "認証ショートカットキーToolStripMenuItem";
+			this.認証ショートカットキーToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+			this.認証ショートカットキーToolStripMenuItem.Text = "認証ショートカットキー";
+			this.認証ショートカットキーToolStripMenuItem.Visible = false;
+			// 
+			// emailToolStripMenuItem
+			// 
+			this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
+			this.emailToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
+			this.emailToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+			this.emailToolStripMenuItem.Text = "Email";
+			this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
+			// 
+			// passwordToolStripMenuItem
+			// 
+			this.passwordToolStripMenuItem.Name = "passwordToolStripMenuItem";
+			this.passwordToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
+			this.passwordToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+			this.passwordToolStripMenuItem.Text = "Password";
+			this.passwordToolStripMenuItem.Click += new System.EventHandler(this.passwordToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -188,6 +236,11 @@
 		private System.Windows.Forms.ToolStripMenuItem ファイルToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem 設定ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem マイリストToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 認証ショートカットキーToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem passwordToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 認証設定ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 動作設定ToolStripMenuItem;
 	}
 }
 

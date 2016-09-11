@@ -21,6 +21,11 @@ namespace NicoNicoPlayer
 			get; set;
 		} = string.Empty;
 
+		public bool MinimizeAfterMyList
+		{
+			get; set;
+		} = true;
+
 		[NonSerialized()]
 		private string _RowPassword = string.Empty;
 

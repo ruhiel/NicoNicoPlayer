@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NicoNicoPlayer
 {
-	public partial class SettingForm : Form
+	public partial class AuthSettingForm : Form
 	{
-		public SettingForm()
+		public AuthSettingForm()
 		{
 			InitializeComponent();
 		}
@@ -20,12 +20,14 @@ namespace NicoNicoPlayer
 		private void SettingForm_Load(object sender, EventArgs e)
 		{
 			Settings.LoadFromXmlFile();
-			this.checkBox1.Checked = Settings.Instance.MinimizeAfterMyList;
+			this.EmailTextBox.Text = Settings.Instance.Email;
+			this.PassWordTextBox.Text = Settings.Instance.RowPassword;
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void OKButton_Click(object sender, EventArgs e)
 		{
-			Settings.Instance.MinimizeAfterMyList = checkBox1.Checked;
+			Settings.Instance.Email = this.EmailTextBox.Text;
+			Settings.Instance.RowPassword = this.PassWordTextBox.Text;
 			Settings.SaveToXmlFile();
 			Close();
 		}
