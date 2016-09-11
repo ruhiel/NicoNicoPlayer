@@ -15,10 +15,28 @@ namespace NicoNicoPlayer
 		{
 			get; set;
 		} = string.Empty;
+
 		public string Password
 		{
-			get;set;
+			get; set;
 		} = string.Empty;
+
+		[NonSerialized()]
+		private string _RowPassword = string.Empty;
+
+		[System.Xml.Serialization.XmlIgnore]
+		public string RowPassword
+		{
+			get
+			{
+				return Crypt.DecryptString(Password);
+			}
+			set
+			{
+				_RowPassword = value;
+				Password = Crypt.EncryptString(_RowPassword);
+			}
+		}
 
 		//Settingsクラスのただ一つのインスタンス
 		[NonSerialized()]
@@ -38,11 +56,11 @@ namespace NicoNicoPlayer
 		/// <summary>
 		/// 設定をXMLファイルから読み込み復元する
 		/// </summary>
-		public static void LoadFromXmlFile(string fileName)
+		public static void LoadFromXmlFile()
 		{
 			try
 			{
-				StreamReader sr = new StreamReader(fileName, new UTF8Encoding(false));
+				StreamReader sr = new StreamReader(Properties.Resources.SettingFileName, new UTF8Encoding(false));
 				System.Xml.Serialization.XmlSerializer xs =
 					new System.Xml.Serialization.XmlSerializer(typeof(Settings));
 				//読み込んで逆シリアル化する
@@ -59,11 +77,11 @@ namespace NicoNicoPlayer
 		/// <summary>
 		/// 現在の設定をXMLファイルに保存する
 		/// </summary>
-		public static void SaveToXmlFile(string fileName)
+		public static void SaveToXmlFile()
 		{
 			try
 			{
-				StreamWriter sw = new StreamWriter(fileName, false, new UTF8Encoding(false));
+				StreamWriter sw = new StreamWriter(Properties.Resources.SettingFileName, false, new UTF8Encoding(false));
 				System.Xml.Serialization.XmlSerializer xs =
 					new System.Xml.Serialization.XmlSerializer(typeof(Settings));
 				//シリアル化して書き込む

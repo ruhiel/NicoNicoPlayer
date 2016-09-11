@@ -87,7 +87,7 @@ namespace NicoNicoPlayer
 		private static RijndaelManaged GetRmInstance()
 		{
 			//var password = Environment.UserName;
-			var password = "NicoNicoPlayer";
+			var password = GetAssemblyTitle();
 			var salt = Encoding.UTF8.GetBytes(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().ManifestModule.Name));
 			var deriveBytes = new Rfc2898DeriveBytes(password, salt);
 
@@ -101,5 +101,15 @@ namespace NicoNicoPlayer
 			return (ret);
 		}
 
+		private static string GetAssemblyTitle()
+		{
+			AssemblyTitleAttribute attr =
+				(AssemblyTitleAttribute)Attribute.GetCustomAttribute(
+					Assembly.GetExecutingAssembly(),
+					typeof(AssemblyTitleAttribute)
+			);
+
+			return attr.Title;
+		}
 	}
 }

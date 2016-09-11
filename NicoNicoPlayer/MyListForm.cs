@@ -37,10 +37,11 @@ namespace NicoNicoPlayer
 				column.Text = "表示";
 				//DataGridViewに追加する
 				myListdataGridView.Columns.Add(column);
-				Settings.LoadFromXmlFile("test.xml");
+				Settings.LoadFromXmlFile();
 				
 
-				NicoNico niconico = new NicoNico(Settings.Instance.Email, Settings.Instance.Password);
+				NicoNico niconico = new NicoNico(Settings.Instance.Email, Settings.Instance.RowPassword);
+
 				foreach (var m in niconico.GetMyList())
 				{
 					this.myListDataSet1.MyList.AddMyListRow(m.Title, m.VideoID);

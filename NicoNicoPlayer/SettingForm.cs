@@ -19,16 +19,16 @@ namespace NicoNicoPlayer
 
 		private void SettingForm_Load(object sender, EventArgs e)
 		{
-			Settings.LoadFromXmlFile("test.xml");
+			Settings.LoadFromXmlFile();
 			this.EmailTextBox.Text = Settings.Instance.Email;
-			this.PassWordTextBox.Text = Settings.Instance.Password;
+			this.PassWordTextBox.Text = Settings.Instance.RowPassword;
 		}
 
 		private void OKButton_Click(object sender, EventArgs e)
 		{
 			Settings.Instance.Email = this.EmailTextBox.Text;
-			Settings.Instance.Password = this.PassWordTextBox.Text;
-			Settings.SaveToXmlFile("test.xml");
+			Settings.Instance.RowPassword = this.PassWordTextBox.Text;
+			Settings.SaveToXmlFile();
 			Close();
 		}
 	}
